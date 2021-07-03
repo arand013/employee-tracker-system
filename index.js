@@ -162,5 +162,84 @@ connection.connect(function(err) {
           }
             );
             };
-      
-      
+//Functiom to ADD department to list 
+            function addDept(){
+                inquirer
+                .prompt([
+                  {
+                    type: "input",
+                    name: "deptName", 
+                    message: "What Department would you like to add?"
+                  }
+                ])
+                .then(function(res){
+                  console.log(res);
+                  const query = connection.query(
+                    "INSERT INTO departments SET ?", 
+                    {
+                      name: res.deptName
+                    }, 
+                    function(err, res){
+                      connection.query("SELECT * FROM departments", function(err, res){
+                        console.table(res); 
+                        start(); 
+                      })
+                    }
+                  )
+                })
+              }
+//Functiom to VIEW ALL departments from list 
+              function viewAllDept(){
+                connection.query ("SELECT * FROM departments", function(err, res){
+                  console.table(res);
+                  start();
+                })
+                }
+//Functiom to ADD Role to list  
+                function addRole() {
+                  let departments= []; 
+                connection.query("SELECT * FROM departments",
+                function(err,res){
+                  if(err) throw err;
+                  for (let i=0; i <res.length; i++){
+                    res[i].first_name + " " + res[i].last_name
+                    departments.push({name: res[i].name, value: res[i].id});
+                  }
+                inquirer
+                .prompt([
+                  {
+                    type: "input", 
+                    name: "title",
+                    message: "What role would you like to add?"
+                  },
+                  {
+                    type: "input",
+                    name: "salary",
+                    message: "What is the salary for the role?"
+                  },
+                  {
+                    type: "list",
+                    name: "department",
+                    message: "what department?",
+                    choices: departments
+                  }
+                ])
+                .then (function(res){
+                  console.log(res); 
+                  const query = connection.query(
+                    "INSERT INTO roles SET ?",
+                    {
+                      title: res.title,
+                      salary: res.salary,
+                      department_id: res.department
+                    }, 
+                    function (err, res){
+                      if (err) throw err;
+                      //const id = res.insertId;
+                      start(); 
+                    }
+                  )
+                })
+                })
+                }
+                
