@@ -12,3 +12,6 @@ CREATE TABLE employees (
   manager_id INTEGER (10) NULL,
   PRIMARY KEY (id)
 );
+CREATE TABLE roles (
+  id INTEGER AUTO_INCREMENT,
+  title VARCHAR(30),
