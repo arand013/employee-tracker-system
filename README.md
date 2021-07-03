@@ -5,7 +5,7 @@
 This is a 
 
 * GIVEN a command-line application that accepts user input
-1. WHEN I am prompted for information about my application repository
+1. WHEN I start the application
 * THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 2. WHEN I enter my project title
 * THEN this is displayed as the title of the README
