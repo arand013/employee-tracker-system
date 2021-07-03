@@ -12,6 +12,7 @@ CREATE TABLE employees (
   manager_id INTEGER (10) NULL,
   PRIMARY KEY (id)
 );
+
 CREATE TABLE roles (
   id INTEGER AUTO_INCREMENT,
   title VARCHAR(30),
@@ -19,3 +20,13 @@ CREATE TABLE roles (
   department_id INTEGER (10),
   PRIMARY KEY (id)
 );
+
+CREATE TABLE departments (
+  id INTEGER AUTO_INCREMENT,
+  name VARCHAR(30),
+  PRIMARY KEY (id)
+);
+
+SELECT * FROM employees;
+SELECT * FROM roles;
+SELECT * FROM departments;
