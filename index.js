@@ -19,7 +19,7 @@ connection.connect(function(err) {
     console.log("connected as id " + connection.threadId + "\n");
     start(); 
   });
-  
+//Function to Start Tracker
   function start(){
     inquirer
     .prompt ([
@@ -81,7 +81,7 @@ connection.connect(function(err) {
       }
     })
   }
-  
+//Function to ADD Employee to list
   function addEmployee() {
     console.log("Inserting a new employee.\n");
     inquirer 
@@ -121,6 +121,7 @@ connection.connect(function(err) {
         );    
       })
     }
+//Function to View All Employees from list
     function viewAllEmployees() {
 
         connection.query("SELECT employees.first_name, employees.last_name, roles.title AS \"role\", managers.first_name AS \"manager\" FROM employees LEFT JOIN roles ON employees.role_id = roles.id LEFT JOIN employees managers ON employees.manager_id = managers.id GROUP BY employees.id",  
@@ -131,5 +132,35 @@ connection.connect(function(err) {
           start();
         });
       }
-
+//Function to Remove Employe from list  
+      function removeEmployee(){
+        let employeeList = [];
+        connection.query(
+          "SELECT employees.first_name, employees.last_name FROM employees", (err,res) => {
+            for (let i = 0; i < res.length; i++){
+              employeeList.push(res[i].first_name + " " + res[i].last_name);
+            }
+        inquirer 
+        .prompt ([ 
+          {
+            type: "list", 
+            message: "Which employee would you like to delete?",
+            name: "employee",
+            choices: employeeList
+      
+          },
+        ])
+        .then (function(res){
+          const query = connection.query(
+            `DELETE FROM employees WHERE concat(first_name, ' ' ,last_name) = '${res.employee}'`,
+              function(err, res) {
+              if (err) throw err;
+              console.log( "Employee deleted!\n");
+           start();
+          });
+          });
+          }
+            );
+            };
+      
       
