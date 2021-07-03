@@ -15,3 +15,7 @@ CREATE TABLE employees (
 CREATE TABLE roles (
   id INTEGER AUTO_INCREMENT,
   title VARCHAR(30),
+  salary DECIMAL (30.2),
+  department_id INTEGER (10),
+  PRIMARY KEY (id)
+);
