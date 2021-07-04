@@ -25,10 +25,10 @@ manager_id INT
 
 /* !!!CHANGE COLUMN NAMES IF DIFFERENT!!! */
 INSERT INTO department (department_name) VALUES
-("Manager"), ("Engineer"), ("Intern");
+("Instructors"), ("TA's"), ("Students");
 
 INSERT INTO roles (title, salary, department_id) VALUES
-("Manager", 100000.00, 1), ("Engineer", 90000.00, 2), ("Intern", 0.00, 3);
+("Instructor", 100000.00, 1), ("TA", 90000.00, 2), ("Student", 0.00, 3);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES
 ("Harrison", "Schaen", 1, NULL),
