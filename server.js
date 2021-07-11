@@ -1,33 +1,30 @@
 const mysql = require("mysql");
-const inquirer = require("inquirer");
 const express = require("express");
+const inquirer = require("inquirer");
 const cTable = require("console.table");
-
+const PORT = 3006;
 const app = express();
-const PORT = 3301;
 
-app.use(express.urlencoded({ extended: true }));
+// Express middleware
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "root",
-    database: "employeesDB",
-});
-
-connection.connect(function (err) {
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
-    }
-
-    console.log("connected as id " + connection.threadId);
-
+// Connect to database
+const connection = mysql.createConnection(
+    {
+        host: 'localhost',
+        // Your MySQL username,
+        user: 'root',
+        // Your MySQL password
+        password: 'Greeneye1',
+        database: 'employeesDB'
+    
+    },
+    console.log('Connected to the employeesDB database.')
+);
     initTracker();
-});
 
+//Function init tracker
 function initTracker() {
     inquirer
         .prompt({
@@ -140,7 +137,7 @@ function deleteDepartment() {
                     // initTracker();
                 }
             );
-
+``
             // Update the roles table so that roles that were assigned to this now deleted department are updated to have a department id of '0' which signifies that they are now unassigned to a department
             connection.query(
                 "UPDATE roles SET ? WHERE ?",
@@ -473,7 +470,6 @@ function displayAllDepartments() {
 }
 
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, function () {
-    // Log (server-side) when our server has started
-    console.log("Server listening on: http://localhost:" + PORT);
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
