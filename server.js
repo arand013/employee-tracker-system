@@ -18,13 +18,13 @@ const connection = mysql.createConnection(
         // Your MySQL password
         password: 'Greeneye1',
         database: 'employeesDB'
-    
+
     },
     console.log('Connected to the employeesDB database.')
 );
-    initTracker();
+initTracker();
 
-//Function init tracker
+// Main Function init tracker
 function initTracker() {
     inquirer
         .prompt({
@@ -111,6 +111,7 @@ function initTracker() {
         });
 }
 
+//  Delete Department Function
 function deleteDepartment() {
     // display department table so user can easily view all IDs
     displayAllDepartments();
@@ -137,7 +138,7 @@ function deleteDepartment() {
                     // initTracker();
                 }
             );
-``
+            ``
             // Update the roles table so that roles that were assigned to this now deleted department are updated to have a department id of '0' which signifies that they are now unassigned to a department
             connection.query(
                 "UPDATE roles SET ? WHERE ?",
@@ -160,7 +161,7 @@ function deleteDepartment() {
             initTracker();
         });
 }
-
+//  Delete Role Function
 function deleteRole() {
     // display department table so user can easily view all IDs
     displayAllRoles();
@@ -210,6 +211,7 @@ function deleteRole() {
         });
 }
 
+//  Delete Employee Function
 function deleteEmployee() {
     // display department table so user can easily view all IDs
     displayAllEmployees();
@@ -237,10 +239,11 @@ function deleteEmployee() {
         });
 }
 
+//  Update Role Function
 function updateRole() {
     let employeeId;
 
-    // display employee table so user can easily view all IDs
+    // This will display employee table so user can easily view all IDs
     displayAllEmployees();
 
     inquirer
@@ -286,6 +289,7 @@ function updateRole() {
         });
 }
 
+//  Add Department/Roles/Employee Functions
 function addDepartment() {
     inquirer
         .prompt({
@@ -309,7 +313,7 @@ function addDepartment() {
             );
         });
 }
-
+//  Add Roles Function
 function addRole() {
     inquirer
         .prompt([
@@ -352,6 +356,7 @@ function addRole() {
         });
 }
 
+//  Add Employee Function
 function addEmployee() {
     inquirer
         .prompt([
@@ -467,9 +472,6 @@ function displayAllDepartments() {
         console.log("\n\n ** Full Department list ** \n");
         console.table(res);
     });
-}
+};
 
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
