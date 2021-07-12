@@ -61,7 +61,12 @@ npm i console.table
 npm i mysql2
 
 ## Tests & Video 
-Enter project testing information here.
+https://drive.google.com/file/d/1XsJXpi8bwNel1nLO6y0vbIPjEJ6Tr8mz/view
+
+<img width="1440" alt="Screen Shot 2021-07-11 at 9 13 14 PM" src="https://user-images.githubusercontent.com/81955843/125230081-f5ad3480-e28c-11eb-9438-47fcb9b5ee9f.png">
+<img width="1440" alt="Screen Shot 2021-07-11 at 9 13 02 PM" src="https://user-images.githubusercontent.com/81955843/125230083-f6de6180-e28c-11eb-8bc4-743db7129234.png">
+<img width="1440" alt="Screen Shot 2021-07-11 at 9 12 54 PM" src="https://user-images.githubusercontent.com/81955843/125230085-f80f8e80-e28c-11eb-957c-ad4eb6b72602.png">
+<img width="1440" alt="Screen Shot 2021-07-11 at 9 12 35 PM" src="https://user-images.githubusercontent.com/81955843/125230090-fb0a7f00-e28c-11eb-9481-f2c70135f3e6.png">
 
 ## Questions
 For questions about this project, please see <br>
