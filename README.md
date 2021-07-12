@@ -52,12 +52,15 @@ This is a
 
 ## Contribution
 Javascript
+<br>
 mySQL2
 
 npm packages installed -
 
 npm init -y 
+<br>
 npm i console.table
+<br>
 npm i mysql2
 
 ## Tests & Video 
