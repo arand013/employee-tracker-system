@@ -34,7 +34,9 @@ This is a
 ## Installation
 1. Download it through Github
 
-2. Ensure npm and inquirer is installed ( "npm init" and "npm install inquirer")
+2. Ensure npm packages are installed 
+
+3. Ensure mySQL is installed
 
 ## Usage
 
